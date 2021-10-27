@@ -16,14 +16,14 @@ const UpdateService = () => {
     const { servicesID } = useParams();
     const [service, setService] = useState({ name: "", description: "", price: "", img: "" });
     useEffect(() => {
-        const url = `http://localhost:5000/services/${servicesID}`;
+        const url = `https://floating-waters-81140.herokuapp.com/services/${servicesID}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data))
     }, [servicesID]);
     // update data 
     const onSubmit = (data) => {
-        axios.put(`http://localhost:5000/services/${servicesID}`, data)
+        axios.put(`https://floating-waters-81140.herokuapp.com/services/${servicesID}`, data)
             .then(res => {
                 if (res) {
                     setSuccess('Service Updated SuceessFully');

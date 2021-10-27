@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Booking = () => {
     const { servicesID } = useParams();
+    console.log('12345');
     const [singleService, setSingleservice] = useState({});
     const [success, setSuccess] = useState("");
     useEffect(() => {
@@ -15,7 +16,7 @@ const Booking = () => {
         }, 5000);
     }, [success]);
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${servicesID}`)
+        fetch(`https://floating-waters-81140.herokuapp.com/services/${servicesID}`)
             .then(res => res.json())
             .then(data => setSingleservice(data))
     }, [servicesID]);
@@ -23,7 +24,7 @@ const Booking = () => {
     // delete 
     const history = useHistory();
     const handleDelete = (servicesID) => {
-        const url = `http://localhost:5000/services/${servicesID}`;
+        const url = `https://floating-waters-81140.herokuapp.com/services/${servicesID}`;
         fetch(url, {
             method: 'DELETE'
         })

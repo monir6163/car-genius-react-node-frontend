@@ -14,7 +14,7 @@ const AddServices = () => {
         }, 5000);
     }, [success]);
     const onSubmit = data => {
-        axios.post('http://localhost:5000/services', data)
+        axios.post('https://floating-waters-81140.herokuapp.com/services', data)
             .then(res => {
                 if (res) {
                     setSuccess('Service Added SuceessFully');
